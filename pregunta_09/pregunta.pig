@@ -34,7 +34,7 @@ $ pig -x local -f pregunta.pig
 
 data = LOAD 'data.tsv' USING PigStorage(',') AS (id: int, name: chararray, lastname: chararray, date: chararray, color: chararray, number: int);
 
-
+result = FOREACH data GENERATE CONCAT(col2, '@', col3);
 
 STORE result INTO 'output' USING PigStorage(',');
 DUMP result;

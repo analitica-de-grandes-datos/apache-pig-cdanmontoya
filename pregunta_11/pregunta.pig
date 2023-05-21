@@ -33,3 +33,9 @@ $ pig -x local -f pregunta.pig
         >>> Escriba su respuesta a partir de este punto <<<
 */
 
+data = LOAD 'data.tsv' USING PigStorage(',') AS (id: int, name: chararray, lastname: chararray, date: chararray, color: chararray, number: int);
+
+
+
+STORE result INTO 'output' USING PigStorage(',');
+DUMP result;
